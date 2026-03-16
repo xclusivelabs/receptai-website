@@ -1,0 +1,596 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .rp { font-family: 'Inter', sans-serif; background: #F7F6F2; color: #1a1a18; }
+
+  .rp-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: #F7F6F2;
+    border-bottom: 1px solid #E2E0D8;
+    position: sticky; top: 0; z-index: 10;
+  }
+
+  .rp-logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 20px; letter-spacing: -0.5px; color: #1a1a18;
+  }
+  .rp-logo span { color: #0B6E4F; }
+
+  .rp-nav-links { display: flex; gap: 2rem; }
+  .rp-nav-links a {
+    font-size: 13px; color: #666; text-decoration: none; cursor: pointer;
+  }
+
+  .rp-nav-cta {
+    background: #0B6E4F; color: #fff; border: none;
+    padding: 9px 22px; border-radius: 100px;
+    font-size: 13px; font-family: 'Inter', sans-serif;
+    cursor: pointer; font-weight: 500;
+  }
+
+  .rp-hero {
+    padding: 0 2.5rem;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; min-height: 520px; align-items: stretch;
+    border-bottom: 1px solid #E2E0D8;
+  }
+
+  .rp-hero-left {
+    padding: 4rem 3rem 4rem 0;
+    border-right: 1px solid #E2E0D8;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .rp-hero-right {
+    padding: 4rem 0 4rem 3rem;
+    background: #0B6E4F;
+    margin: 0 -2.5rem 0 0;
+    padding-right: 2.5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  .rp-hero-right::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .rp-hero-right::after {
+    content: '';
+    position: absolute; bottom: -40px; left: 20px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .rp-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #E8F5EF; color: #0B6E4F;
+    font-size: 11px; font-weight: 500;
+    padding: 5px 12px; border-radius: 100px;
+    margin-bottom: 1.75rem; width: fit-content;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+
+  .rp-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #0B6E4F; }
+
+  .rp-h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 52px; font-weight: 800;
+    line-height: 1.08; letter-spacing: -2px;
+    margin-bottom: 1.5rem; color: #1a1a18;
+  }
+
+  .rp-h1 .accent {
+    color: #0B6E4F;
+    font-style: italic;
+  }
+
+  .rp-sub {
+    font-size: 16px; color: #666; line-height: 1.7;
+    margin-bottom: 2.5rem; font-weight: 300;
+    max-width: 400px;
+  }
+
+  .rp-cta-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+  .rp-btn-primary {
+    background: #1a1a18; color: #fff; border: none;
+    padding: 13px 28px; border-radius: 100px;
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    cursor: pointer; font-weight: 500;
+  }
+
+  .rp-btn-ghost {
+    background: none; color: #1a1a18;
+    border: 1px solid #D0CEC6;
+    padding: 13px 28px; border-radius: 100px;
+    font-size: 14px; font-family: 'Inter', sans-serif; cursor: pointer;
+  }
+
+  .rp-chat-preview {
+    position: relative; z-index: 1;
+  }
+
+  .rp-chat-header {
+    background: rgba(255,255,255,0.15); border-radius: 12px 12px 0 0;
+    padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .rp-chat-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #0B6E4F; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .rp-chat-name { font-size: 13px; font-weight: 500; color: #fff; }
+  .rp-chat-status { font-size: 11px; color: rgba(255,255,255,0.6); }
+
+  .rp-chat-body {
+    background: rgba(255,255,255,0.08);
+    border-radius: 0 0 12px 12px;
+    padding: 16px; display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .rp-msg {
+    max-width: 85%; padding: 10px 14px; border-radius: 14px;
+    font-size: 13px; line-height: 1.5;
+  }
+
+  .rp-msg-in {
+    background: rgba(255,255,255,0.15); color: #fff;
+    border-radius: 4px 14px 14px 14px; align-self: flex-start;
+  }
+
+  .rp-msg-out {
+    background: #fff; color: #1a1a18;
+    border-radius: 14px 4px 14px 14px; align-self: flex-end;
+  }
+
+  .rp-msg-time { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; text-align: right; }
+
+  .rp-stats-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid #E2E0D8;
+  }
+
+  .rp-stat {
+    padding: 2rem 2.5rem;
+    border-right: 1px solid #E2E0D8;
+  }
+  .rp-stat:last-child { border-right: none; }
+
+  .rp-stat-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 32px; font-weight: 800;
+    letter-spacing: -1px; color: #1a1a18;
+    margin-bottom: 4px;
+  }
+
+  .rp-stat-num span { color: #0B6E4F; }
+  .rp-stat-label { font-size: 13px; color: #999; }
+
+  .rp-section { padding: 4rem 2.5rem; border-bottom: 1px solid #E2E0D8; }
+
+  .rp-section-eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .rp-eyebrow-line { width: 24px; height: 2px; background: #0B6E4F; }
+
+  .rp-eyebrow-text {
+    font-size: 11px; font-weight: 500; color: #0B6E4F;
+    text-transform: uppercase; letter-spacing: 1.5px;
+  }
+
+  .rp-section-h {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 38px; font-weight: 800;
+    letter-spacing: -1.5px; line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+
+  .rp-section-sub {
+    font-size: 15px; color: #777; font-weight: 300;
+    line-height: 1.7; max-width: 480px; margin-bottom: 3rem;
+  }
+
+  .rp-features {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: #E2E0D8; border: 1px solid #E2E0D8; border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .rp-feat {
+    background: #F7F6F2; padding: 2rem 1.75rem;
+    transition: background 0.2s;
+  }
+
+  .rp-feat:hover { background: #fff; }
+
+  .rp-feat-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px; font-weight: 700; color: #0B6E4F;
+    letter-spacing: 1px; margin-bottom: 1.25rem;
+  }
+
+  .rp-feat-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px; font-weight: 700;
+    margin-bottom: 0.6rem; letter-spacing: -0.3px;
+  }
+
+  .rp-feat-desc { font-size: 13px; color: #777; line-height: 1.65; }
+
+  .rp-pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+  .rp-price-card {
+    border: 1px solid #E2E0D8; border-radius: 16px;
+    padding: 2rem 1.75rem; background: #fff;
+    position: relative;
+  }
+
+  .rp-price-card.featured {
+    background: #0B6E4F; border-color: #0B6E4F;
+  }
+
+  .rp-popular {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: #1a1a18; color: #fff;
+    font-size: 10px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 14px; border-radius: 100px; white-space: nowrap;
+  }
+
+  .rp-plan-name {
+    font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #999; margin-bottom: 1rem;
+  }
+  .rp-price-card.featured .rp-plan-name { color: rgba(255,255,255,0.6); }
+
+  .rp-plan-price {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 42px; font-weight: 800;
+    letter-spacing: -2px; margin-bottom: 0.25rem; color: #1a1a18;
+  }
+  .rp-price-card.featured .rp-plan-price { color: #fff; }
+
+  .rp-plan-price sup {
+    font-size: 20px; vertical-align: super; letter-spacing: 0;
+  }
+
+  .rp-plan-price sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 400; letter-spacing: 0;
+    vertical-align: baseline; color: #999;
+  }
+  .rp-price-card.featured .rp-plan-price sub { color: rgba(255,255,255,0.5); }
+
+  .rp-plan-tagline {
+    font-size: 13px; color: #888; margin-bottom: 1.75rem; line-height: 1.5;
+  }
+  .rp-price-card.featured .rp-plan-tagline { color: rgba(255,255,255,0.65); }
+
+  .rp-divider { height: 1px; background: #E2E0D8; margin-bottom: 1.5rem; }
+  .rp-price-card.featured .rp-divider { background: rgba(255,255,255,0.15); }
+
+  .rp-feats { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 10px; }
+
+  .rp-feats li {
+    font-size: 13px; color: #555;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .rp-price-card.featured .rp-feats li { color: rgba(255,255,255,0.85); }
+
+  .rp-tick {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #E8F5EF; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .rp-price-card.featured .rp-tick { background: rgba(255,255,255,0.2); }
+
+  .rp-plan-btn {
+    width: 100%; padding: 12px;
+    border-radius: 100px; font-size: 14px;
+    font-family: 'Inter', sans-serif; cursor: pointer; font-weight: 500;
+    border: 1.5px solid #1a1a18; background: none; color: #1a1a18;
+  }
+
+  .rp-plan-btn.inv {
+    background: #fff; color: #0B6E4F; border-color: #fff;
+  }
+
+  .rp-contact-wrap {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start;
+  }
+
+  .rp-contact-left { padding-top: 0.5rem; }
+
+  .rp-contact-info { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .rp-info-item { display: flex; gap: 12px; align-items: flex-start; }
+
+  .rp-info-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: #E8F5EF; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .rp-info-label { font-size: 11px; color: #999; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .rp-info-val { font-size: 14px; font-weight: 500; color: #1a1a18; }
+
+  .rp-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .rp-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .rp-field { display: flex; flex-direction: column; gap: 6px; }
+
+  .rp-field label { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .rp-field input, .rp-field select, .rp-field textarea {
+    padding: 12px 14px; border-radius: 10px;
+    border: 1px solid #E2E0D8; background: #fff;
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    color: #1a1a18; outline: none;
+  }
+
+  .rp-field textarea { resize: none; min-height: 100px; }
+
+  .rp-submit {
+    background: #0B6E4F; color: #fff; border: none;
+    padding: 14px 36px; border-radius: 100px;
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    cursor: pointer; font-weight: 500; width: fit-content;
+  }
+
+  .rp-footer {
+    padding: 1.75rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: #999; flex-wrap: wrap; gap: 1rem;
+  }
+</style>
+
+<div class="rp">
+
+  <nav class="rp-nav">
+    <div class="rp-logo">Recept<span>AI</span></div>
+    <div class="rp-nav-links">
+      <a onclick="document.getElementById('feat').scrollIntoView({behavior:'smooth'})">Features</a>
+      <a onclick="document.getElementById('price').scrollIntoView({behavior:'smooth'})">Pricing</a>
+      <a onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Contact</a>
+    </div>
+    <button class="rp-nav-cta" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Book a demo</button>
+  </nav>
+
+  <div class="rp-hero">
+    <div class="rp-hero-left">
+      <div class="rp-tag"><div class="rp-tag-dot"></div>AI receptionist for SG businesses</div>
+      <h1 class="rp-h1">Never miss<br>a customer<br><span class="accent">again.</span></h1>
+      <p class="rp-sub">ReceptAI answers WhatsApp messages, books appointments, and handles FAQs — 24 hours a day, in English, Mandarin, Malay, and Tamil.</p>
+      <div class="rp-cta-row">
+        <button class="rp-btn-primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Get a free demo</button>
+        <button class="rp-btn-ghost" onclick="document.getElementById('feat').scrollIntoView({behavior:'smooth'})">See features</button>
+      </div>
+    </div>
+
+    <div class="rp-hero-right">
+      <div class="rp-chat-preview">
+        <div class="rp-chat-header">
+          <div class="rp-chat-avatar">R</div>
+          <div>
+            <div class="rp-chat-name">ReceptAI · Bright Smile Dental</div>
+            <div class="rp-chat-status">Online now</div>
+          </div>
+        </div>
+        <div class="rp-chat-body">
+          <div class="rp-msg rp-msg-in">Hi, I'd like to book a dental checkup</div>
+          <div class="rp-msg rp-msg-out">Hi! 👋 I'd be happy to help you book a checkup with Dr. Tan. What date works for you? We have slots available this week on Wed and Fri.</div>
+          <div class="rp-msg rp-msg-in">Friday at 2pm please</div>
+          <div class="rp-msg rp-msg-out">Perfect! Friday 2pm is available. Can I get your name and contact number to confirm? 😊</div>
+          <div class="rp-msg-time">Delivered · Just now</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rp-stats-bar">
+    <div class="rp-stat">
+      <div class="rp-stat-num"><span>24</span>/7</div>
+      <div class="rp-stat-label">Always available</div>
+    </div>
+    <div class="rp-stat">
+      <div class="rp-stat-num"><span>50</span>%</div>
+      <div class="rp-stat-label">Less manual workload</div>
+    </div>
+    <div class="rp-stat">
+      <div class="rp-stat-num"><span>4</span> lang</div>
+      <div class="rp-stat-label">EN · CN · Malay · Tamil</div>
+    </div>
+    <div class="rp-stat">
+      <div class="rp-stat-num"><span>$0</span></div>
+      <div class="rp-stat-label">Setup fee</div>
+    </div>
+  </div>
+
+  <section class="rp-section" id="feat">
+    <div class="rp-section-eyebrow">
+      <div class="rp-eyebrow-line"></div>
+      <div class="rp-eyebrow-text">Features</div>
+    </div>
+    <h2 class="rp-section-h">Everything your<br>business needs</h2>
+    <p class="rp-section-sub">Plug into your existing WhatsApp and Google Calendar. No new apps for your team to learn.</p>
+
+    <div class="rp-features">
+      <div class="rp-feat">
+        <div class="rp-feat-num">01</div>
+        <div class="rp-feat-title">Smart appointment booking</div>
+        <div class="rp-feat-desc">Customers book, reschedule, and cancel via WhatsApp. Slots sync with Google Calendar in real time.</div>
+      </div>
+      <div class="rp-feat">
+        <div class="rp-feat-num">02</div>
+        <div class="rp-feat-title">Instant FAQ responses</div>
+        <div class="rp-feat-desc">Answers questions about services, pricing, location, and hours instantly — any time of day.</div>
+      </div>
+      <div class="rp-feat">
+        <div class="rp-feat-num">03</div>
+        <div class="rp-feat-title">Appointment reminders</div>
+        <div class="rp-feat-desc">Automatic WhatsApp reminders 24 hours before appointments to reduce no-shows.</div>
+      </div>
+      <div class="rp-feat">
+        <div class="rp-feat-num">04</div>
+        <div class="rp-feat-title">Multilingual support</div>
+        <div class="rp-feat-desc">Replies in English, Mandarin, Malay, or Tamil — automatically matching the customer's language.</div>
+      </div>
+      <div class="rp-feat">
+        <div class="rp-feat-num">05</div>
+        <div class="rp-feat-title">Smart escalation</div>
+        <div class="rp-feat-desc">Detects urgent or complex enquiries and seamlessly hands them off to your team in real time.</div>
+      </div>
+      <div class="rp-feat">
+        <div class="rp-feat-num">06</div>
+        <div class="rp-feat-title">Admin dashboard</div>
+        <div class="rp-feat-desc">View today's appointments and all customer interactions from a simple web dashboard.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section" id="price">
+    <div class="rp-section-eyebrow">
+      <div class="rp-eyebrow-line"></div>
+      <div class="rp-eyebrow-text">Pricing</div>
+    </div>
+    <h2 class="rp-section-h">Simple pricing,<br>no surprises</h2>
+    <p class="rp-section-sub">No contracts. No setup fees. Cancel anytime.</p>
+
+    <div class="rp-pricing">
+      <div class="rp-price-card">
+        <div class="rp-plan-name">Starter</div>
+        <div class="rp-plan-price"><sup>$</sup>150<sub>/mo</sub></div>
+        <div class="rp-plan-tagline">For small businesses getting started with AI-powered customer service.</div>
+        <div class="rp-divider"></div>
+        <ul class="rp-feats">
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>WhatsApp chat bot</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>FAQ answering</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Appointment booking</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>After hours handling</li>
+        </ul>
+        <button class="rp-plan-btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Get started</button>
+      </div>
+
+      <div class="rp-price-card featured">
+        <div class="rp-popular">Most popular</div>
+        <div class="rp-plan-name">Pro</div>
+        <div class="rp-plan-price"><sup>$</sup>300<sub>/mo</sub></div>
+        <div class="rp-plan-tagline">For growing businesses that want full front-desk automation.</div>
+        <div class="rp-divider"></div>
+        <ul class="rp-feats">
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Everything in Starter</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Google Calendar sync</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Appointment reminders</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Multilingual support</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Admin dashboard</li>
+        </ul>
+        <button class="rp-plan-btn inv" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Get started</button>
+      </div>
+
+      <div class="rp-price-card">
+        <div class="rp-plan-name">Premium</div>
+        <div class="rp-plan-price"><sup>$</sup>500<sub>/mo</sub></div>
+        <div class="rp-plan-tagline">For multi-location businesses needing advanced features.</div>
+        <div class="rp-divider"></div>
+        <ul class="rp-feats">
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Everything in Pro</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Multi-location support</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Customer reactivation</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Priority support</li>
+        </ul>
+        <button class="rp-plan-btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Get started</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section" id="demo">
+    <div class="rp-contact-wrap">
+      <div class="rp-contact-left">
+        <div class="rp-section-eyebrow">
+          <div class="rp-eyebrow-line"></div>
+          <div class="rp-eyebrow-text">Get a demo</div>
+        </div>
+        <h2 class="rp-section-h">See it live<br>in 30 mins</h2>
+        <p class="rp-section-sub" style="margin-bottom: 0;">We'll set up a working demo on your own WhatsApp number — no commitment needed.</p>
+        <div class="rp-contact-info">
+          <div class="rp-info-item">
+            <div class="rp-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B6E4F" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="rp-info-label">WhatsApp us</div>
+              <div class="rp-info-val">+65 9000 0000</div>
+            </div>
+          </div>
+          <div class="rp-info-item">
+            <div class="rp-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B6E4F" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="rp-info-label">Email</div>
+              <div class="rp-info-val">hello@receptai.sg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rp-form">
+        <div class="rp-form-row">
+          <div class="rp-field">
+            <label>Your name</label>
+            <input type="text" placeholder="Dr. Tan Wei Ming" />
+          </div>
+          <div class="rp-field">
+            <label>Business name</label>
+            <input type="text" placeholder="Bright Smile Dental" />
+          </div>
+        </div>
+        <div class="rp-form-row">
+          <div class="rp-field">
+            <label>WhatsApp number</label>
+            <input type="text" placeholder="+65 9123 4567" />
+          </div>
+          <div class="rp-field">
+            <label>Business type</label>
+            <select>
+              <option>Clinic (GP / Dental / Specialist)</option>
+              <option>Aesthetic / Wellness</option>
+              <option>Salon / Barbershop</option>
+              <option>Tuition / Education</option>
+              <option>Fitness / Gym</option>
+              <option>Retail / F&amp;B</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="rp-field">
+          <label>Anything else?</label>
+          <textarea placeholder="Tell us about your business or any specific requirements..."></textarea>
+        </div>
+        <button class="rp-submit">Request a free demo →</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rp-footer">
+    <div class="rp-logo" style="font-size: 16px;">Recept<span>AI</span></div>
+    <div>Built for Singapore businesses · PDPA compliant</div>
+    <div>© 2026 ReceptAI · Singapore</div>
+  </footer>
+
+</div>
