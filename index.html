@@ -1,4 +1,12 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReceptAI — AI Receptionist for Singapore Businesses</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B6E4F'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-family='sans-serif' font-weight='bold' fill='white'>R</text></svg>" />
+</head>
+<body>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap');
 
@@ -151,14 +159,14 @@
   }
 
   .rp-msg-out {
-    background: #fff; color: #1a1a18;
+    background: #DCF8C6; color: #1a1a18;
     border-radius: 14px 4px 14px 14px; align-self: flex-end;
   }
 
   .rp-msg-time { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; text-align: right; }
 
   .rp-stats-bar {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; grid-template-columns: repeat(3, 1fr);
     border-bottom: 1px solid #E2E0D8;
   }
 
@@ -387,15 +395,15 @@
         <div class="rp-chat-header">
           <div class="rp-chat-avatar">R</div>
           <div>
-            <div class="rp-chat-name">ReceptAI · Bright Smile Dental</div>
+            <div class="rp-chat-name">ReceptAI · My Dental Clinic</div>
             <div class="rp-chat-status">Online now</div>
           </div>
         </div>
         <div class="rp-chat-body">
-          <div class="rp-msg rp-msg-in">Hi, I'd like to book a dental checkup</div>
-          <div class="rp-msg rp-msg-out">Hi! 👋 I'd be happy to help you book a checkup with Dr. Tan. What date works for you? We have slots available this week on Wed and Fri.</div>
-          <div class="rp-msg rp-msg-in">Friday at 2pm please</div>
-          <div class="rp-msg rp-msg-out">Perfect! Friday 2pm is available. Can I get your name and contact number to confirm? 😊</div>
+          <div class="rp-msg rp-msg-out">Hi, I'd like to book a dental checkup</div>
+          <div class="rp-msg rp-msg-in">Hi! 👋 I'd be happy to help you book a checkup with Dr. Tan. What date works for you? We have slots available this week on Wed and Fri.</div>
+          <div class="rp-msg rp-msg-out">Friday at 2pm please</div>
+          <div class="rp-msg rp-msg-in">Perfect! Friday 2pm is available. Can I get your name and contact number to confirm? 😊</div>
           <div class="rp-msg-time">Delivered · Just now</div>
         </div>
       </div>
@@ -408,16 +416,12 @@
       <div class="rp-stat-label">Always available</div>
     </div>
     <div class="rp-stat">
-      <div class="rp-stat-num"><span>50</span>%</div>
-      <div class="rp-stat-label">Less manual workload</div>
+      <div class="rp-stat-num" style="font-size:22px; letter-spacing:-0.5px;"><span>Less</span> admin</div>
+      <div class="rp-stat-label">More time for your team</div>
     </div>
     <div class="rp-stat">
       <div class="rp-stat-num"><span>4</span> lang</div>
-      <div class="rp-stat-label">EN · CN · Malay · Tamil</div>
-    </div>
-    <div class="rp-stat">
-      <div class="rp-stat-num"><span>$0</span></div>
-      <div class="rp-stat-label">Setup fee</div>
+      <div class="rp-stat-label">English · Chinese · Malay · Tamil</div>
     </div>
   </div>
 
@@ -469,19 +473,20 @@
       <div class="rp-eyebrow-text">Pricing</div>
     </div>
     <h2 class="rp-section-h">Simple pricing,<br>no surprises</h2>
-    <p class="rp-section-sub">No contracts. No setup fees. Cancel anytime.</p>
+    <p class="rp-section-sub">No contracts. Cancel anytime.</p>
 
-    <div class="rp-pricing">
+    <div class="rp-pricing" style="grid-template-columns: repeat(2, 1fr); max-width: 760px;">
       <div class="rp-price-card">
         <div class="rp-plan-name">Starter</div>
-        <div class="rp-plan-price"><sup>$</sup>150<sub>/mo</sub></div>
+        <div class="rp-plan-price"><sup>$</sup>199<sub>/mo</sub></div>
         <div class="rp-plan-tagline">For small businesses getting started with AI-powered customer service.</div>
         <div class="rp-divider"></div>
         <ul class="rp-feats">
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>WhatsApp chat bot</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>FAQ answering</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Appointment booking</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>After hours handling</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Up to 3 staff / service providers</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>WhatsApp AI receptionist (24/7)</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Appointment booking, rescheduling & cancellation</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Google Calendar integration</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Up to 500 conversations/month</li>
         </ul>
         <button class="rp-plan-btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Get started</button>
       </div>
@@ -489,33 +494,20 @@
       <div class="rp-price-card featured">
         <div class="rp-popular">Most popular</div>
         <div class="rp-plan-name">Pro</div>
-        <div class="rp-plan-price"><sup>$</sup>300<sub>/mo</sub></div>
+        <div class="rp-plan-price"><sup>$</sup>349<sub>/mo</sub></div>
         <div class="rp-plan-tagline">For growing businesses that want full front-desk automation.</div>
         <div class="rp-divider"></div>
         <ul class="rp-feats">
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Up to 8 staff / service providers</li>
           <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Everything in Starter</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Google Calendar sync</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Appointment reminders</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Multilingual support</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Admin dashboard</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Multi-language support (English, Mandarin, Malay, Tamil)</li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Appointment reminders <span style="font-size:11px; opacity:0.6;">(coming soon)</span></li>
+          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Up to 1,500 conversations/month</li>
         </ul>
         <button class="rp-plan-btn inv" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Get started</button>
       </div>
-
-      <div class="rp-price-card">
-        <div class="rp-plan-name">Premium</div>
-        <div class="rp-plan-price"><sup>$</sup>500<sub>/mo</sub></div>
-        <div class="rp-plan-tagline">For multi-location businesses needing advanced features.</div>
-        <div class="rp-divider"></div>
-        <ul class="rp-feats">
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Everything in Pro</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Multi-location support</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Customer reactivation</li>
-          <li><div class="rp-tick"><svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" stroke="#0B6E4F" stroke-width="1.5" fill="none"/></svg></div>Priority support</li>
-        </ul>
-        <button class="rp-plan-btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Get started</button>
-      </div>
     </div>
+    <p style="margin-top: 1.5rem; font-size: 14px; color: #888;">Need more? <a onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})" style="color: #0B6E4F; font-weight: 500; cursor: pointer;">Contact us</a></p>
   </section>
 
   <section class="rp-section" id="demo">
@@ -534,7 +526,7 @@
             </div>
             <div>
               <div class="rp-info-label">WhatsApp us</div>
-              <div class="rp-info-val">+65 9000 0000</div>
+              <div class="rp-info-val"><a href="https://wa.me/6596933339" target="_blank" style="color:#1a1a18; text-decoration:none;">+65 9693 3339</a></div>
             </div>
           </div>
           <div class="rp-info-item">
@@ -543,31 +535,31 @@
             </div>
             <div>
               <div class="rp-info-label">Email</div>
-              <div class="rp-info-val">hello@receptai.sg</div>
+              <div class="rp-info-val">xclusivelabs.solutions@gmail.com</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="rp-form">
+      <form class="rp-form" action="https://formspree.io/f/mlgwqaly" method="POST" id="demoForm">
         <div class="rp-form-row">
           <div class="rp-field">
             <label>Your name</label>
-            <input type="text" placeholder="Dr. Tan Wei Ming" />
+            <input type="text" name="name" placeholder="Dr. Tan Wei Ming" required />
           </div>
           <div class="rp-field">
             <label>Business name</label>
-            <input type="text" placeholder="Bright Smile Dental" />
+            <input type="text" name="business" placeholder="My Dental Clinic" required />
           </div>
         </div>
         <div class="rp-form-row">
           <div class="rp-field">
             <label>WhatsApp number</label>
-            <input type="text" placeholder="+65 9123 4567" />
+            <input type="text" name="whatsapp" placeholder="+65 9123 4567" required />
           </div>
           <div class="rp-field">
             <label>Business type</label>
-            <select>
+            <select name="business_type">
               <option>Clinic (GP / Dental / Specialist)</option>
               <option>Aesthetic / Wellness</option>
               <option>Salon / Barbershop</option>
@@ -580,10 +572,30 @@
         </div>
         <div class="rp-field">
           <label>Anything else?</label>
-          <textarea placeholder="Tell us about your business or any specific requirements..."></textarea>
+          <textarea name="message" placeholder="Tell us about your business or any specific requirements..."></textarea>
         </div>
-        <button class="rp-submit">Request a free demo →</button>
-      </div>
+        <button type="submit" class="rp-submit">Request a free demo →</button>
+        <div id="formSuccess" style="display:none; margin-top:1rem; color:#0B6E4F; font-weight:600;">✓ Thanks! We'll be in touch shortly.</div>
+      </form>
+      <script>
+        document.getElementById('demoForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const btn = form.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+          const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            form.reset();
+            btn.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Request a free demo →';
+            alert('Something went wrong. Please try again.');
+          }
+        });
+      </script>
     </div>
   </section>
 
@@ -591,6 +603,9 @@
     <div class="rp-logo" style="font-size: 16px;">Recept<span>AI</span></div>
     <div>Built for Singapore businesses · PDPA compliant</div>
     <div>© 2026 ReceptAI · Singapore</div>
+    <div style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">Powered by <strong>Xclusive Labs</strong></div>
   </footer>
 
 </div>
+</body>
+</html>
