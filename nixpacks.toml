@@ -1,0 +1,5 @@
+[phases.install]
+cmds = ["npm install -g serve"]
+
+[start]
+cmd = "serve . -l $PORT"
